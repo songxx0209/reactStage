@@ -1,0 +1,20 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "commonjs": true
+  },
+  "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "react/jsx-no-bind": [2, {
+      "allowBind": true
+    }],
+    "max-len": [1, 120, 2, { "ignoreComments": true }],
+    "prop-types": 0
+  },
+  "extends": "airbnb"
+}
