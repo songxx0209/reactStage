@@ -4,7 +4,7 @@
   "description": "增加typescript，单元测试",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --progress --colors",
+    "build": "rm -rf dist/ && webpack --progress --colors",
     "start": "webpack-dev-server --progress"
   },
   "repository": {

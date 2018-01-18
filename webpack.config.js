@@ -28,15 +28,13 @@ module.exports = {
     host: '0.0.0.0',
     port: 9000,
     // open: true,
-    // historyApiFallback: {},
-    // proxy: {},
   },
 
   module: {
     loaders: [
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader?minimize'
+        loader: 'style-loader!css-loader'
       },
       {
         test: /\.less$/,
@@ -44,21 +42,7 @@ module.exports = {
         use: ExtractTextPlugin.extract({
             fallback: 'style-loader',
             // resolve-url-loader may be chained before sass-loader if necessary
-            use: [
-              'css-loader',
-              {
-                loader: 'postcss-loader',
-                options: {
-                  ident: 'postcss',
-                  plugins: [
-                    autoprefixer({
-                      browsers: ['last 2 versions', 'Android >= 4.0'],
-                    }),
-                  ]
-                }
-              },
-              'less-loader'
-            ]
+            use: [{ loader: 'css-loader', options: { module: true } }, 'postcss-loader', 'less-loader' ]
         })
       },
       {
@@ -84,21 +68,6 @@ module.exports = {
       //       fallback: "style-loader"
       //   })
       // },
-      // {
-      //   test: /\.(less|css)$/,
-      //   use: extractLess.extract({
-      //     fallback: "style-loader", 
-      //     use: [
-      //       {
-      //         loader: 'css-loader', options: { module: true },
-      //       }, {
-      //         loader: "postcss-loader"
-      //       }, {
-      //         loader: "less-loader"
-      //       }
-      //     ]
-      //   })
-      // }
     ]
   },
 
@@ -110,20 +79,6 @@ module.exports = {
         hash: true, // 在文件名后面生成 hash值,这样的好处是覆盖式部署不会生成很多相同名字的文件，减小服务器内存压力
         inject: false
     }),
-    // // 部分 loader 配置信息
-    // new webpack.LoaderOptionsPlugin({
-    //   options: {
-    //       postcss: function () {
-    //           return [autoprefixer({
-    //               browsers: ['last 2 versions', 'Android >= 4.0'],
-    //               //是否美化属性值 默认：true 
-    //               cascade: true,
-    //               //是否去掉不必要的前缀 默认：true
-    //               remove: false
-    //           })];
-    //       } 
-    //   }
-    // }),
     extractLess,
   ]
 
