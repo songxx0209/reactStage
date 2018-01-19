@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf dist/ && webpack --progress --colors",
-    "start": "webpack-dev-server --progress"
+    "start": "webpack-dev-server --progress --history-api-fallback"
   },
   "repository": {
     "type": "git",

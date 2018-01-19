@@ -1,9 +1,14 @@
-.container {
+._2CLioAU74GxsfmaWacBL4B {
   width: 300px;
   height: 100px;
   border: 1px solid #333;
   border-radius: 16px;
+  -webkit-box-shadow: 1px 20px 1px #333;
+          box-shadow: 1px 20px 1px #333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
-.container p {
+._2CLioAU74GxsfmaWacBL4B p {
   color: red;
 }

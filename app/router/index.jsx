@@ -8,7 +8,7 @@ import Article from '../pages/article';
 const routes = (
   <Route>
     <Route path="/" component={Login} />
-    <Route path="/article" component={Article} />
+    <Route path="article" component={Article} />
   </Route>
 );
 
