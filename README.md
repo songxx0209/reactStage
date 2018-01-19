@@ -1,2 +1,5 @@
 # reactStage
-增加typescript，单元测试
+redux
+router4
+ts !important
+单元测试 !important

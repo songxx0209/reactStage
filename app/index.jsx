@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
-import styles from './index.less';
+import store from './redux-model';
+
+import Login from './pages/login';
 
 ReactDOM.render(
-  <div className={styles.container}>
-    <p>hello world 666!</p>
-  </div>,
+  <Provider store={store}>
+    <Login />
+  </Provider>,
   document.getElementById('app'),
 );

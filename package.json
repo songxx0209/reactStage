@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/songxx0209/reactStage#readme",
   "dependencies": {
+    "axios": "^0.17.1",
     "babel": "^6.23.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
@@ -27,12 +28,19 @@
     "babel-preset-stage-0": "^6.24.1",
     "classnames": "^2.2.5",
     "css-loader": "^0.28.8",
+    "lodash": "^4.17.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-action-tools": "^1.2.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
     "style-loader": "^0.19.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.2.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "eslint": "^4.15.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-loader": "^1.9.0",

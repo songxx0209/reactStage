@@ -1,15 +1,14 @@
-const webpack = require('webpack');
+// const webpack = require('webpack');
 const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebpackDevServer = require('webpack-dev-server');
+// const WebpackDevServer = require('webpack-dev-server');
 
-var autoprefixer = require('autoprefixer');
+// const autoprefixer = require('autoprefixer');
 
 const extractLess = new ExtractTextPlugin({
-  filename: "[name].css",
-  // filename: "[name].[contenthash].css",
-  // disable: process.env.NODE_ENV === "development",
+  filename: '[name].css',
+  // disable: process.env.NODE_ENV === "development", // 是否禁用次插件
 });
 
 module.exports = {
@@ -34,16 +33,16 @@ module.exports = {
     loaders: [
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader: 'style-loader!css-loader',
       },
       {
         test: /\.less$/,
         // loader: 'style-loader!css-loader!sass-loader!postcss-loader'
         use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            // resolve-url-loader may be chained before sass-loader if necessary
-            use: [{ loader: 'css-loader', options: { module: true } }, 'postcss-loader', 'less-loader' ]
-        })
+          fallback: 'style-loader',
+          // resolve-url-loader may be chained before sass-loader if necessary
+          use: [{ loader: 'css-loader', options: { module: true } }, 'postcss-loader', 'less-loader'],
+        }),
       },
       {
         test: /\.js[x]?$/, // Match both .js and .jsx files
@@ -52,6 +51,13 @@ module.exports = {
         query:
           {
             presets: ['es2015', 'stage-0', 'react'],
+            plugins: [
+              // 此插件允许使用 async await
+              ['transform-runtime', {
+                polyfill: false,
+                regenerator: true,
+              }],
+            ],
           },
       },
       // {
@@ -68,18 +74,18 @@ module.exports = {
       //       fallback: "style-loader"
       //   })
       // },
-    ]
+    ],
   },
 
   plugins: [
     new HtmlWebpackPlugin({
-        filename: 'index.html',
-        template: './app/index.html',
-        title: 'phicomm backserver',
-        hash: true, // 在文件名后面生成 hash值,这样的好处是覆盖式部署不会生成很多相同名字的文件，减小服务器内存压力
-        inject: false
+      filename: 'index.html',
+      template: './app/index.html',
+      title: 'phicomm backserver',
+      hash: true, // 在文件名后面生成 hash值,这样的好处是覆盖式部署不会生成很多相同名字的文件，减小服务器内存压力
+      inject: false,
     }),
     extractLess,
-  ]
+  ],
 
-}
+};
