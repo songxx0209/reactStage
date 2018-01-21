@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-import { getData } from '../../redux-model/actions/test';
+import { getInfo } from '../../redux-model/actions/test';
 import styles from './index.less';
 
 class Login extends Component {
+  componentDidMount() {
+    console.log(this.props);
+    this.props.getInfo();
+  }
   render() {
     return (
       <div className={styles.container}>
@@ -25,7 +29,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = ({
-  getData,
+  getInfo,
 });
 
 export default connect(

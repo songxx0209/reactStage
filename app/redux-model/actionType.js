@@ -1,3 +1,3 @@
 
-export const ADD_TODO = 'ADD_TODO';
+export const ADD_INFO = 'ADD_INFO';
 export const GET_DATA = 'GET_DATA';
