@@ -7,8 +7,8 @@ import styles from './index.less';
 
 class Login extends Component {
   componentDidMount() {
-    console.log(this.props);
-    this.props.getInfo();
+    console.log(this.props.getInfo());
+    console.log('spppp', this.props);
   }
   render() {
     return (
