@@ -9,9 +9,16 @@ const actionTypes = {
 export function loadingReducer(state = false, action) {
   switch (action.type) {
     case actionTypes.ASYNC_STARTED:
+    {
+      window.phicommLoading.show();
       return true;
+    }
+
     case actionTypes.ASYNC_ENDED:
+    {
+      window.phicommLoading.hide();
       return false;
+    }
     default: return state;
   }
 }
@@ -27,8 +34,8 @@ export default function loadingMiddleWare({ dispatch }) {
           ? actionTypes.ASYNC_STARTED
           : actionTypes.ASYNC_ENDED,
         payload: {
-          source: 'ACTION',
-          action,
+          // source: 'ACTION',
+          action: action.type,
         },
       });
     }

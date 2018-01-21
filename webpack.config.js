@@ -2,9 +2,7 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const WebpackDevServer = require('webpack-dev-server');
-
-// const autoprefixer = require('autoprefixer');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const extractLess = new ExtractTextPlugin({
   filename: '[name].css',
@@ -60,24 +58,13 @@ module.exports = {
             ],
           },
       },
-      // {
-      //   test: /\.less$/,
-      //   use: extractLess.extract({
-      //       use: [{
-      //           loader: "css-loader",
-      //           // 开启 css-module，将css名转换为一个唯一的值
-      //           options: { modules: true, importLoaders: 1 }
-      //       }, {
-      //           loader: "less-loader"
-      //       }],
-      //       // use style-loader in development
-      //       fallback: "style-loader"
-      //   })
-      // },
     ],
   },
 
   plugins: [
+    new CopyWebpackPlugin([
+      { from: './app/lib/loading.js', to: '.' },
+    ]),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './app/index.html',

@@ -4,7 +4,7 @@
   "description": "增加typescript，单元测试",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist/ && webpack --progress --colors",
+    "build": "rm -rf dist/ && webpack --progress --colors -p",
     "start": "webpack-dev-server --progress --history-api-fallback"
   },
   "repository": {
@@ -43,6 +43,7 @@
   "devDependencies": {
     "autoprefixer": "^7.2.4",
     "babel-plugin-transform-runtime": "^6.23.0",
+    "copy-webpack-plugin": "^4.3.1",
     "eslint": "^4.15.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-loader": "^1.9.0",
