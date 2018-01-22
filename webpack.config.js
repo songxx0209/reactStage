@@ -17,6 +17,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx', '.css'],
+    alias: {
+      components: path.resolve(__dirname, 'app/components/'),
+    },
   },
 
   devServer: {

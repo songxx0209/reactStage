@@ -2,13 +2,13 @@ import React from 'react';
 import { Route } from 'react-router';
 
 import Login from '../pages/login';
-import Article from '../pages/article';
+import Articles from '../pages/articles';
 
 
 const routes = (
   <Route>
     <Route path="/" component={Login} />
-    <Route path="article" component={Article} />
+    <Route path="articles" component={Articles} />
   </Route>
 );
 
