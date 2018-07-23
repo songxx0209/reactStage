@@ -6,9 +6,6 @@ import styles from './index.less';
 import TodoCreator from 'components/TodoCreator';
 import TodoItem from 'components/TodoItem';
 
-// import { getData } from '../../redux-model/actions/test';
-
-
 class Login extends Component {
   constructor() {
     super();
@@ -19,14 +16,12 @@ class Login extends Component {
   addTodo = (value) => {
     const todo = this.state.todos;
     todo.push(value);
-    console.log('add=', todo);
     this.setState({ todos: todo });
   }
   deleteTodo = (value) => {
     const { todos } = this.state;
     const index = todos.indexOf(value);
     todos.splice(index, 1);
-    console.log('delete=', index, todos);
     this.setState({ todos });
   }
   render() {

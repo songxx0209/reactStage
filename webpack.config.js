@@ -28,6 +28,14 @@ module.exports = {
     host: '0.0.0.0',
     port: 9000,
     // open: true,
+    proxy: {
+      '/phicomm': {
+        target: 'https://test.phicomm.com:3442',
+        // target: 'http://www.dashixiongky.com/',
+        secure: false,
+        pathRewrite: { '^/phicomm': '' },
+      },
+    },
   },
 
   module: {
