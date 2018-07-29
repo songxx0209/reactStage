@@ -5,21 +5,42 @@ import { connect } from 'react-redux';
 import request from '../../lib/request';
 
 import { getInfo } from '../../redux-model/actions/test';
+
+import ChildOne from './childComponent/childOne';
+import ChildTow from './childComponent/childTow';
+import ChildThree from './childComponent/childThree';
 import styles from './index.less';
 
-class Login extends Component {
+class Login extends React.PureComponent {
+  constructor() {
+    super();
+
+    this.state = {
+      count: 0,
+    }
+  }
   componentDidMount() {
-    // console.log(this.props.getInfo());
-    // console.log('spppp', this.props);
-    request.get('http://localhost:3000/fetchUsers', (data) => {
-      console.log(data);
-    });
+    // this.props.getInfo();
+    console.log('componentDidMount');
+
+    let self = this;
+    setTimeout(function() {
+      self.setState({
+        count: 0,
+      });
+
+      console.log('componentDidMount === next');
+    }, 2000)
   }
   render() {
+    console.log('render');
     return (
       <div className={styles.container}>
         <p>hello world 666!</p>
-
+        
+        <ChildOne />
+        <ChildTow />
+        <ChildThree />
         <button>
           {/* <Link to="/article">挑战</Link> */}
         </button>
