@@ -1,78 +1,50 @@
-// const webpack = require('webpack');
-const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-
-const extractLess = new ExtractTextPlugin({
-  filename: '[name].css',
-  // disable: process.env.NODE_ENV === "development", // 是否禁用次插件
-});
+const path = require('path')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './app/index.jsx',
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].js',
-  },
-  resolve: {
-    extensions: ['.js', '.jsx', '.css'],
-  },
-
-  devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    compress: true,
-    host: '0.0.0.0',
-    port: 9000,
-    // open: true,
-  },
-
-  module: {
-    loaders: [
-      {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader',
-      },
-      {
-        test: /\.less$/,
-        // loader: 'style-loader!css-loader!sass-loader!postcss-loader'
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          // resolve-url-loader may be chained before sass-loader if necessary
-          use: [{ loader: 'css-loader', options: { module: true } }, 'postcss-loader', 'less-loader'],
-        }),
-      },
-      {
-        test: /\.js[x]?$/, // Match both .js and .jsx files
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query:
-          {
-            presets: ['es2015', 'stage-0', 'react'],
-            plugins: [
-              // 此插件允许使用 async await
-              ['transform-runtime', {
-                polyfill: false,
-                regenerator: true,
-              }],
-            ],
-          },
-      },
+    mode: 'development',
+    //入口文件的路径
+    entry: "./src/index.tsx",
+    output: {
+      //打包的输出路径
+      path: path.resolve(__dirname, "dist"),
+      filename: "bundle.js"
+    },
+    // 添加需要解析的文件格式
+    resolve: {
+      extensions: ['.ts', '.tsx', '.js', '.json']
+    },
+    
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          include: [
+            path.resolve(__dirname, 'src')
+          ],
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-react'],
+            plugins: ['@babel/plugin-proposal-class-properties']
+          }
+        },
+        {
+          test: /\.tsx?$/,
+          use: ['ts-loader']
+        }
+      ]
+    },
+    plugins: [
+      new CleanWebpackPlugin(['dist']),
+      new HtmlWebpackPlugin({
+        title: '蚂蚁',
+        template: './index.html',
+      })
     ],
-  },
-
-  plugins: [
-    new CopyWebpackPlugin([
-      { from: './app/lib/loading.js', to: '.' },
-    ]),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: './app/index.html',
-      title: 'phicomm backserver',
-      hash: true, // 在文件名后面生成 hash值,这样的好处是覆盖式部署不会生成很多相同名字的文件，减小服务器内存压力
-      inject: false,
-    }),
-    extractLess,
-  ],
-
-};
+    devServer: {
+      contentBase: path.resolve(__dirname, "dist"),
+    },
+    // 启用sourceMap
+    devtool: "source-map",
+}

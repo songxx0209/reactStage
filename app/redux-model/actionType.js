@@ -1,4 +1,0 @@
-
-export const ADD_INFO = 'ADD_INFO';
-export const ADD_INFO_COMPLETED = 'ADD_INFO_COMPLETED';
-export const ADD_INFO_FAILED = 'ADD_INFO_FAILED';
