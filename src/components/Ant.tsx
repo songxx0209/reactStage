@@ -18,6 +18,13 @@ export class Ant extends React.Component<AntProps, AntState> {
       time: 32,
     }
   }
+  handleChange() {
+    let time = 44;
+    this.setState({
+      time,
+    });
+    console.log('hellow world');
+  }
   render() {
     return (
       <div>
@@ -27,6 +34,8 @@ export class Ant extends React.Component<AntProps, AntState> {
           <br />
           time: {this.state.time}
         </h1>
+        <br />
+        <button onClick={ () => this.handleChange() }>login</button>
       </div>
     )
   }
