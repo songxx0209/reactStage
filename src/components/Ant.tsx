@@ -23,7 +23,6 @@ export class Ant extends React.Component<AntProps, AntState> {
     this.setState({
       time,
     });
-    console.log('hellow world');
   }
   render() {
     return (

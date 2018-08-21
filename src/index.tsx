@@ -1,9 +1,9 @@
 import * as React from "react"
 import * as ReactDOM from "react-dom"
 
-import { Ant } from "./components/Ant"
+import App from "./App"
 
 ReactDOM.render(
-  <Ant name={`23`} company="ydj" />,
+  <App />,
   document.getElementById("app")
 )
