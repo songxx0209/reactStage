@@ -1,12 +1,12 @@
 
 import React from 'react';
-import Enzyme from 'enzyme';
+// import Enzyme from 'enzyme';
 import {shallow, mount, render} from 'enzyme';
 
 
-import Adapter from 'enzyme-adapter-react-16';
+// import Adapter from 'enzyme-adapter-react-16';
  
-Enzyme.configure({ adapter: new Adapter() });
+// Enzyme.configure({ adapter: new Adapter() });
 
 import App from '../src/App';
 
@@ -22,7 +22,7 @@ import App from '../src/App';
 //   });
 // });
 
-// describe('Enzyme Shallow', function () {
+describe('Enzyme Shallow', function () {
   test('App\'s title should be Todos', function () {
     let app = shallow(<App />);
     expect(app.find('h1').text()).toEqual('Todos');
@@ -30,4 +30,4 @@ import App from '../src/App';
     // const renderer = shallow(<div>hello world</div>);
     // expect(renderer.text()).toEqual('hello world');
   });
-// });
+});

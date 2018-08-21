@@ -36,6 +36,7 @@
     "build": "webpack -p"
   },
   "jest": {
+    "rootDir": "./",
     "moduleFileExtensions": [
       "ts",
       "tsx",
@@ -45,6 +46,7 @@
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
+    "setupFiles": ["<rootDir>/test/step.js"],
     "testMatch": [
       "<rootDir>/test/**/?(*.)(spec|test).ts?(x)"
     ]
