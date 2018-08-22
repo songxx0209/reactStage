@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App />  Snapshot 1`] = `
+<div>
+  <h1>
+    Todos
+  </h1>
+  <ul />
+  <div
+    className="add-todo"
+  >
+    <input
+      onChange={[Function]}
+      placeholder="Todo four"
+      type="text"
+      value=""
+    />
+    <button
+      className="add-button"
+      onClick={[Function]}
+    >
+      Add Todo
+    </button>
+  </div>
+</div>
+`;
