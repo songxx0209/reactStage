@@ -38,4 +38,4 @@ describe('Enzyme Shallow', function () {
     app.find('.add-button').simulate('click');
     expect(app.find('li').length).toEqual(todoLength + 2);
   });
-}); 
+});
