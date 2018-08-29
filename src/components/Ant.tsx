@@ -1,4 +1,5 @@
-import * as React from "react"
+import * as React from "react";
+import { add, del } from '../lib/common';
 
 // 限制props的类型
 interface AntProps {
@@ -11,7 +12,7 @@ interface AntState {
   time: number,
 }
 
-export class Ant extends React.Component<AntProps, AntState> {
+export default class Ant extends React.Component<AntProps, AntState> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -24,6 +25,12 @@ export class Ant extends React.Component<AntProps, AntState> {
       time,
     });
   }
+  onAdd() {
+    add('hello world');
+  }
+  onDel() {
+    del();
+  }
   render() {
     return (
       <div>
@@ -35,6 +42,10 @@ export class Ant extends React.Component<AntProps, AntState> {
         </h1>
         <br />
         <button onClick={ () => this.handleChange() }>login</button>
+
+        <br/>
+        <button onClick={this.onAdd.bind(this)}>add</button>
+        <button onClick={this.onDel.bind(this)}>delete</button>
       </div>
     )
   }
