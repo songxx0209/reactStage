@@ -1,7 +1,7 @@
-export function add(item: any) {
+export function add(item: any): void {
   console.log('add', item);
 }
 
-export function del() {
+export function del(): void {
   console.log('del');
 }

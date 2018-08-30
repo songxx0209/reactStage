@@ -2,7 +2,7 @@
 import React from 'react';
 import {shallow, mount, render} from 'enzyme';
 import App from '../src/App';
-import AddTodo from '../src/components/AddTodo';
+// import AddTodo from '../src/components/AddTodo';
 
 describe('testing descibe', () => {
   it('hello world', () => {
@@ -36,6 +36,6 @@ describe('Enzyme Shallow', function () {
     // app.find('input').simulate('change');
     // addInput.props.value = 'Todo Four';
     app.find('.add-button').simulate('click');
-    expect(app.find('li').length).toEqual(todoLength + 2);
+    expect(app.find('li').length).toEqual(todoLength + 1);
   });
 });

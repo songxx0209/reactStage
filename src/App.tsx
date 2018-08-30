@@ -1,7 +1,7 @@
 import React from 'react';
 import AddTodo from './components/AddTodo';
 import TodoList from './components/TodoList';
-import Ant from './components/Ant';
+// import Ant from './components/Ant';
 
 interface Props {}
 
@@ -46,7 +46,7 @@ export default class App extends React.Component<{}, State> {
         <TodoList itemList={this.state.list} delItem={this.delItem.bind(this)} />
         <AddTodo addItem={this.addItem.bind(this)} />
         <hr/>
-        <Ant name="song" company={`woqu`}></Ant>
+        {/* <Ant name="song" company={`woqu`}></Ant> */}
       </div>
     );
   }
