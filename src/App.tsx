@@ -1,12 +1,40 @@
 import React from 'react';
 import AddTodo from './components/AddTodo';
 import TodoList from './components/TodoList';
-// import Ant from './components/Ant';
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect
+} from 'react-router-dom';
+
 
 interface Props {}
 
 interface State {
   list: Array<any>,
+}
+
+
+const Home = () => (
+  <div>
+    <h2>Home</h2>
+  </div>
+)
+
+const About = () => (
+  <div>
+    <h2>About</h2>
+  </div>
+)
+
+function requireAuth(Layout: any) {
+  if (false) { // 未登录
+    return <Redirect to="/home" />;
+  } else {
+    return <Layout />
+  }
 }
 
 export default class App extends React.Component<{}, State> {
@@ -46,7 +74,19 @@ export default class App extends React.Component<{}, State> {
         <TodoList itemList={this.state.list} delItem={this.delItem.bind(this)} />
         <AddTodo addItem={this.addItem.bind(this)} />
         <hr/>
-        {/* <Ant name="song" company={`woqu`}></Ant> */}
+
+        <Router>
+          <div>
+            {/* <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">About</Link></li>
+            </ul>
+
+            <hr/> */}
+            <Route exact path="/" component={() => requireAuth(About)}/>
+            <Route path="/about" component={Home} />
+          </div>
+        </Router>
       </div>
     );
   }
