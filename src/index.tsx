@@ -1,9 +1,11 @@
-import * as React from "react"
-import * as ReactDOM from "react-dom"
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 
-import App from "./App"
+import App from "./App";
+import './index.css';
+import {Button} from 'antd';
 
 ReactDOM.render(
-  <App />,
+  <Button>niubi</Button>,
   document.getElementById("app")
 )

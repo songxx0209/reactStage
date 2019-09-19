@@ -1,5 +1,13 @@
 import React from 'react';
 import Storage from 'store';
+// import Button from 'antd/lib/button';
+import { Button } from 'antd';
+// import './index.css';
+
+// import './index.less';
+// import './index.css';
+
+// const styles = require('./index.css');
 
 interface Props {
   history: any
@@ -36,10 +44,11 @@ export default class Login extends React.Component<Props, State> {
   render() {
     return (
       <div>
-        <p>姓名：<input type="text" name="name" onChange={(e) => this.setState({name: e.target.value})} /></p>
+        {/* <p className={ styles.app }>姓名：<input type="text" name="name" onChange={(e) => this.setState({name: e.target.value})} /></p> */}
         <p>密码：<input type="password" name="password" onChange={(e) => this.setState({password: e.target.value})} /></p>
         <p><input type="submit" value="确定" onClick={this.submit.bind(this)} />
         <input type="reset" value="取消" onClick={() => {this.reset()}} /></p>
+        <Button type="primary" size="small">sdfsld</Button>
       </div>
     );
   }

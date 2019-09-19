@@ -12,6 +12,7 @@ const history = createHistory()
 
 import Login from './pages/Login';
 import Containers from './pages/Containers';
+// import './index.css';
 
 interface Props {}
 
