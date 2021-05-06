@@ -28,7 +28,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "classnames": "^2.2.5",
     "css-loader": "^0.28.8",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.21",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
